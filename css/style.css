@@ -1,0 +1,905 @@
+/* Основные стили и CSS-переменные */
+:root {
+    --crypto-edu-primary-500: #7c3aed;
+    --crypto-edu-primary-700: #5b21b6;
+    --crypto-edu-bg-light: #ffffff;
+    --crypto-edu-bg-card: #ffffff;
+    --crypto-edu-text-primary: #1a1a2e;
+    --crypto-edu-text-secondary: #4a4a6a;
+    --crypto-edu-accent: #7c3aed;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: var(--crypto-edu-text-primary);
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+.crypto-edu-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Заголовок героя */
+.crypto-edu-hero {
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.crypto-edu-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--crypto-edu-primary-700) 0%, var(--crypto-edu-primary-500) 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    animation: crypto-edu-gradient-shift 8s ease infinite;
+    background-size: 200% auto;
+}
+
+.crypto-edu-hero-description {
+    font-size: 1.25rem;
+    color: var(--crypto-edu-text-secondary);
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+/* Декоративные элементы на странице */
+.crypto-edu-decorative-circle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    animation: crypto-edu-pulse 4s ease-in-out infinite;
+}
+
+.crypto-edu-circle-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+    top: 10%;
+    right: 5%;
+}
+
+.crypto-edu-circle-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.06) 0%, transparent 70%);
+    bottom: 15%;
+    left: 8%;
+    animation-delay: 2s;
+}
+
+.crypto-edu-hero-wave {
+    position: absolute;
+    bottom: 10;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+
+}
+
+/* Подсветка важных элементов */
+.crypto-edu-highlight {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(167, 139, 250, 0.12));
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.1);
+}
+
+.crypto-edu-legal-notice {
+    background: linear-gradient(135deg, rgba(255, 200, 0, 0.08), rgba(255, 220, 100, 0.05));
+    border-left: 4px solid #ffc800;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--crypto-edu-text-secondary);
+    box-shadow: 0 4px 15px rgba(255, 200, 0, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   НОВАЯ СЕКЦИЯ "ПОЧЕМУ ВАЖНО ОБУЧАТЬСЯ"
+   ============================================ */
+
+.crypto-edu-why-learn-section {
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.crypto-edu-why-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.crypto-edu-why-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+    animation: crypto-edu-icon-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(124, 58, 237, 0.3));
+}
+
+.crypto-edu-why-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+    color: var(--crypto-edu-text-primary);
+    position: relative;
+}
+
+.crypto-edu-why-subtitle {
+    font-size: 1.15rem;
+    color: var(--crypto-edu-text-secondary);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Блоки причин - вертикальный поток */
+.crypto-edu-reasons-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Вертикальная линия связи между блоками */
+.crypto-edu-reasons-flow::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 60px;
+    width: 3px;
+    background: linear-gradient(180deg, 
+        var(--crypto-edu-primary-500) 0%, 
+        var(--crypto-edu-primary-700) 50%,
+        rgba(124, 58, 237, 0.3) 100%
+    );
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.crypto-edu-reason-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    position: relative;
+    padding: 35px 40px;
+    background: var(--crypto-edu-bg-card);
+    border-radius: 20px;
+    border: 2px solid rgba(124, 58, 237, 0.15);
+    box-shadow: 0 10px 40px rgba(124, 58, 237, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.crypto-edu-reason-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--crypto-edu-primary-500), 
+        var(--crypto-edu-primary-700), 
+        #a78bfa
+    );
+    background-size: 200% 100%;
+    border-radius: 20px 20px 0 0;
+    animation: crypto-edu-gradient-move 3s ease infinite;
+}
+
+.crypto-edu-reason-block:hover {
+    transform: translateX(10px) scale(1.02);
+    border-color: var(--crypto-edu-primary-500);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+}
+
+.crypto-edu-reason-number {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--crypto-edu-primary-500), var(--crypto-edu-primary-700));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s;
+}
+
+.crypto-edu-reason-block:hover .crypto-edu-reason-number {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.crypto-edu-reason-content {
+    flex: 1;
+}
+
+.crypto-edu-reason-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--crypto-edu-accent);
+}
+
+.crypto-edu-reason-content p {
+    font-size: 1.05rem;
+    color: var(--crypto-edu-text-secondary);
+    line-height: 1.7;
+}
+
+.crypto-edu-reason-content a {
+    text-decoration: underline;
+    transition: all 0.3s;
+}
+
+.crypto-edu-reason-content a:hover {
+    color: var(--crypto-edu-primary-700);
+}
+
+/* CTA блок внизу секции */
+.crypto-edu-why-cta {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(167, 139, 250, 0.08));
+    border-radius: 20px;
+    border: 2px solid var(--crypto-edu-primary-500);
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-edu-why-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+    animation: crypto-edu-form-glow 10s ease-in-out infinite;
+}
+
+.crypto-edu-why-cta p {
+    font-size: 1.15rem;
+    color: var(--crypto-edu-text-primary);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.crypto-edu-why-cta button {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   КВИЗ СЕКЦИЯ - ПОЛНАЯ ШИРИНА
+   ============================================ */
+
+.crypto-edu-quiz-section {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    border-radius: 24px;
+    padding: 50px 40px;
+    border: 2px solid rgba(124, 58, 237, 0.15);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.2), 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+    /* УБРАНА max-width для полной ширины */
+}
+
+.crypto-edu-quiz-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.03) 0%, transparent 70%);
+    animation: crypto-edu-form-glow 10s ease-in-out infinite;
+}
+
+/* Все анимации */
+
+@keyframes crypto-edu-background-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(2%, -2%) scale(1.02); }
+    50% { transform: translate(-2%, 2%) scale(0.98); }
+    75% { transform: translate(3%, 1%) scale(1.01); }
+}
+
+@keyframes crypto-edu-floating-shapes {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    25% { transform: translate(30px, -30px) rotate(5deg); opacity: 0.8; }
+    50% { transform: translate(-20px, 40px) rotate(-3deg); opacity: 0.9; }
+    75% { transform: translate(40px, 20px) rotate(7deg); opacity: 0.7; }
+}
+
+@keyframes crypto-edu-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes crypto-edu-gradient-move {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes crypto-edu-shine {
+    0% { top: -50%; left: -50%; }
+    100% { top: 150%; left: 150%; }
+}
+
+@keyframes crypto-edu-icon-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes crypto-edu-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.3; }
+}
+
+@keyframes crypto-edu-fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes crypto-edu-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes crypto-edu-form-glow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10%, 10%); }
+}
+
+/* Анимация появления элементов при скролле */
+.crypto-edu-animate-in {
+    animation: crypto-edu-fade-in-up 0.6s ease-out forwards;
+}
+
+/* Компоненты: кнопки, карточки, формы, FAQ */
+
+/* Кнопки */
+.crypto-edu-btn-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.crypto-edu-btn {
+    padding: 18px 36px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-edu-btn-primary {
+    background: linear-gradient(135deg, var(--crypto-edu-primary-500), var(--crypto-edu-primary-700));
+    color: white;
+    box-shadow: 0 26px 60px rgba(124, 58, 237, 0.55);
+}
+
+.crypto-edu-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 70px rgba(124, 58, 237, 0.7);
+}
+
+.crypto-edu-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.crypto-edu-btn-primary:hover::before {
+    left: 100%;
+}
+
+.crypto-edu-btn-secondary {
+    background: rgba(167, 139, 250, 0.1);
+    color: var(--crypto-edu-accent);
+    border: 2px solid var(--crypto-edu-accent);
+    box-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
+}
+
+.crypto-edu-btn-secondary:hover {
+    background: rgba(167, 139, 250, 0.2);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.4);
+}
+
+/* Карточки */
+.crypto-edu-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.crypto-edu-card {
+    background: var(--crypto-edu-bg-card);
+    border-radius: 24px;
+    padding: 32px;
+    border: 2px solid rgba(124, 58, 237, 0.15);
+    box-shadow: 0 10px 40px rgba(124, 58, 237, 0.15), 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--crypto-edu-primary-500), var(--crypto-edu-primary-700), #a78bfa);
+    background-size: 200% 100%;
+    animation: crypto-edu-gradient-move 3s ease infinite;
+}
+
+/* Блик на карточке */
+.crypto-edu-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.crypto-edu-card:hover {
+    transform: translateY(-8px) rotate(0.5deg);
+    border-color: var(--crypto-edu-primary-500);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.35), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-edu-card:hover::after {
+    opacity: 1;
+    animation: crypto-edu-shine 1.5s ease;
+}
+
+
+.crypto-edu-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+    color: var(--crypto-edu-text-primary);
+    position: relative;
+}
+
+.crypto-edu-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+    color: var(--crypto-edu-accent);
+}
+
+.crypto-edu-card p, .crypto-edu-card li {
+    color: var(--crypto-edu-text-secondary);
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* Специальные карточки */
+.crypto-edu-cta-card {
+    text-align: center;
+    margin-bottom: 60px;
+    background: linear-gradient(135deg, #f9fafb, #ffffff);
+}
+
+.crypto-edu-highlight-card {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(167, 139, 250, 0.08));
+    border-color: var(--crypto-edu-primary-500);
+}
+
+.crypto-edu-learning-cta-card {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(167, 139, 250, 0.08));
+    border-color: var(--crypto-edu-primary-500);
+}
+
+/* Мозаичная сетка */
+.crypto-edu-mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.crypto-edu-mosaic-item-large {
+    grid-column: span 8;
+    grid-row: span 2;
+}
+
+.crypto-edu-mosaic-item-medium {
+    grid-column: span 4;
+}
+
+.crypto-edu-mosaic-item-small {
+    grid-column: span 4;
+}
+
+/* Список с иконками */
+.crypto-edu-icon-list {
+    list-style: none;
+    padding: 0;
+}
+
+.crypto-edu-icon-list li {
+    padding: 16px 0;
+    padding-left: 40px;
+    position: relative;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    transition: all 0.3s;
+}
+
+.crypto-edu-icon-list li:hover {
+    padding-left: 50px;
+    background: rgba(124, 58, 237, 0.03);
+}
+
+.crypto-edu-icon-list li:last-child {
+    border-bottom: none;
+}
+
+.crypto-edu-icon-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--crypto-edu-primary-500), var(--crypto-edu-primary-700));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    transition: all 0.3s;
+}
+
+.crypto-edu-icon-list li:hover::before {
+    transform: scale(1.15) rotate(360deg);
+}
+
+/* Форма */
+.crypto-edu-form-section {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    border-radius: 24px;
+    padding: 50px;
+    border: 2px solid rgba(124, 58, 237, 0.15);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.2), 0 5px 15px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 60px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-edu-form-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.03) 0%, transparent 70%);
+    animation: crypto-edu-form-glow 10s ease-in-out infinite;
+}
+
+.crypto-edu-form-group {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.crypto-edu-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--crypto-edu-accent);
+    font-weight: 600;
+}
+
+.crypto-edu-form-group input,
+.crypto-edu-form-group select,
+.crypto-edu-form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 2px solid rgba(124, 58, 237, 0.2);
+    background: #ffffff;
+    color: var(--crypto-edu-text-primary);
+    font-size: 1rem;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.crypto-edu-form-group input:focus,
+.crypto-edu-form-group select:focus,
+.crypto-edu-form-group textarea:focus {
+    outline: none;
+    border-color: var(--crypto-edu-primary-500);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
+    transform: translateY(-2px);
+}
+
+.crypto-edu-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* FAQ Аккордеон */
+.crypto-edu-faq-section {
+    margin-bottom: 60px;
+}
+
+.crypto-edu-faq-header {
+    margin-bottom: 30px;
+}
+
+.crypto-edu-faq-item {
+    background: var(--crypto-edu-bg-card);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    border: 2px solid rgba(124, 58, 237, 0.12);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.crypto-edu-faq-item:hover {
+    border-color: var(--crypto-edu-accent);
+    box-shadow: 0 12px 40px rgba(124, 58, 237, 0.2), 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.crypto-edu-faq-question {
+    padding: 24px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.15rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.crypto-edu-faq-question:hover {
+    color: var(--crypto-edu-primary-500);
+}
+
+.crypto-edu-faq-answer {
+    padding: 0 24px 24px;
+    color: var(--crypto-edu-text-secondary);
+    display: none;
+}
+
+.crypto-edu-faq-item.active .crypto-edu-faq-answer {
+    display: block;
+    animation: crypto-edu-fade-in-down 0.4s ease;
+}
+
+/* Пошаговое руководство */
+.crypto-edu-guide-section {
+    margin-bottom: 60px;
+}
+
+.crypto-edu-guide-header {
+    margin-bottom: 40px;
+}
+
+.crypto-edu-guide-cta {
+    text-align: center;
+    margin-top: 40px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(167, 139, 250, 0.08));
+    border-color: var(--crypto-edu-primary-500);
+}
+
+.crypto-edu-mistakes-section {
+    margin-bottom: 60px;
+}
+
+.crypto-edu-steps-container {
+    position: relative;
+    padding-left: 60px;
+}
+
+.crypto-edu-step {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 24px;
+    background: var(--crypto-edu-bg-card);
+    border-radius: 16px;
+    border: 2px solid rgba(124, 58, 237, 0.12);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.crypto-edu-step:hover {
+    transform: translateX(10px);
+    border-color: var(--crypto-edu-primary-500);
+    box-shadow: 0 12px 40px rgba(124, 58, 237, 0.25), 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.crypto-edu-step::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -60px;
+    top: 24px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--crypto-edu-primary-500), var(--crypto-edu-primary-700));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.5);
+    transition: all 0.3s;
+}
+
+.crypto-edu-step:hover::before {
+    transform: scale(1.15) rotate(360deg);
+}
+
+.crypto-edu-step::after {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 70px;
+    width: 2px;
+    height: calc(100% - 44px);
+    background: linear-gradient(180deg, var(--crypto-edu-primary-500), transparent);
+}
+
+.crypto-edu-step:last-child::after {
+    display: none;
+}
+
+/* ============================================
+   АДАПТИВНОСТЬ
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .crypto-edu-mosaic-item-large {
+        grid-column: span 12;
+    }
+    .crypto-edu-mosaic-item-medium,
+    .crypto-edu-mosaic-item-small {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Новая секция "Почему важно" */
+    .crypto-edu-reasons-flow::before {
+        left: 35px;
+    }
+    
+    .crypto-edu-reason-block {
+        flex-direction: column;
+        padding: 25px;
+    }
+    
+    .crypto-edu-reason-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .crypto-edu-reason-block:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+
+    .crypto-edu-mosaic-item-large,
+    .crypto-edu-mosaic-item-medium,
+    .crypto-edu-mosaic-item-small {
+        grid-column: span 12;
+    }
+
+    .crypto-edu-steps-container {
+        padding-left: 40px;
+    }
+
+    .crypto-edu-step::before {
+        left: -40px;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .crypto-edu-step::after {
+        left: -22px;
+    }
+
+    .crypto-edu-form-section,
+    .crypto-edu-quiz-section {
+        padding: 30px 20px;
+    }
+
+    .crypto-edu-btn-container {
+        flex-direction: column;
+    }
+
+    .crypto-edu-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .crypto-edu-learning-cta-card {
+        grid-column: span 1;
+    }
+    
+    .crypto-edu-why-cta {
+        padding: 30px 20px;
+    }
+}
