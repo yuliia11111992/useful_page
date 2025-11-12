@@ -41,9 +41,11 @@ body {
     padding: 80px 20px;
     margin-bottom: 80px;
     position: relative;
+    
 }
 
 .crypto-edu-hero h1 {
+
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     background: linear-gradient(135deg, var(--crypto-edu-primary-700) 0%, var(--crypto-edu-primary-500) 50%, #a78bfa 100%);
@@ -54,6 +56,12 @@ body {
     line-height: 1.2;
     animation: crypto-edu-gradient-shift 8s ease infinite;
     background-size: 200% auto;
+    animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .crypto-edu-hero-description {
@@ -63,38 +71,13 @@ body {
     margin: 0 auto 40px;
 }
 
-/* Декоративные элементы на странице */
-.crypto-edu-decorative-circle {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-    animation: crypto-edu-pulse 4s ease-in-out infinite;
-}
-
-.crypto-edu-circle-1 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
-    top: 10%;
-    right: 5%;
-}
-
-.crypto-edu-circle-2 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.06) 0%, transparent 70%);
-    bottom: 15%;
-    left: 8%;
-    animation-delay: 2s;
-}
 
 .crypto-edu-hero-wave {
     position: absolute;
     bottom: 10;
     left: 0;
     width: 100%;
-    height: 150px;
+    height: 130px;
     z-index: 1;
 
 }
